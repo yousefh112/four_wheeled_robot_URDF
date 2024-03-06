@@ -2,7 +2,16 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="FourWheeledRobot">
 
     <xacro:include filename="$(find robot_description_pkg)/urdf/material.xacro" />
-    <xacro:include filename="$(find robot_description_pkg)/urdf/gazebo.gazebo" />
+    <xacro:include filename="$(find robot_description_pkg)/urdf/gazebo_plugins.gazebo" />
+
+    <!-- This is the footprint -->
+    <link name="robot_footprint"></link>
+
+    <joint name="robot_footprint_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="robot_footprint" />
+        <child link="chassis_link" />
+    </joint>
 
     <!-- This is the chassis -->
     <link name="chassis_link">

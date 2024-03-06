@@ -11,7 +11,7 @@
             <wheelSeparation>0.7</wheelSeparation>
             <wheelDiameter>0.15</wheelDiameter>
             <robotBaseFrame>chassis_link</robotBaseFrame>
-            <torque>20</torque>
+            <torque>3.2</torque>
             <topicName>cmd_vel</topicName>
             <broadcastTF>false</broadcastTF>
         </plugin>
@@ -46,7 +46,7 @@
                 <updateRate>0.0</updateRate>
                 <cameraName>/camera1</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
-                <cameraInfoTopicName>/camera_info</cameraInfoTopicName>
+                <cameraInfoTopicName>camera1/camera_info</cameraInfoTopicName>
                 <frameName>camera_link</frameName>
                 <hackBaseline>0.07</hackBaseline>
                 <distortionK1>0.0</distortionK1>
