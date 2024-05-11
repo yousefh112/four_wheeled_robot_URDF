@@ -4,12 +4,12 @@
     <xacro:include filename="$(find robot_description_pkg)/urdf/material.xacro" />
     <xacro:include filename="$(find robot_description_pkg)/urdf/gazebo_plugins.gazebo" />
 
-    <!-- This is the footprint -->
-    <link name="robot_footprint"></link>
+    <!-- This is odom -->
+    <link name="odom"></link>
 
-    <joint name="robot_footprint_joint" type="fixed">
+    <joint name="odom_joint" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <parent link="robot_footprint" />
+        <parent link="odom" />
         <child link="chassis_link" />
     </joint>
 
@@ -27,7 +27,6 @@
             </geometry>
             <material name="red">
                 <color rgba="1 0 0 1" />
-                <texture filename="" />
             </material>
         </visual>
         <collision name="chassis_collision">
@@ -37,6 +36,11 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="chassis_link">
+        <material name="red">
+            <color rgba="1 0 0 1" />
+        </material>
+    </gazebo>
     <!-- Back right wheel -->
     <joint name="wheel1_joint" type="continuous">
         <origin xyz="-0.3 -0.35 -0.1" rpy="0.0 0.0 0.0" />
@@ -58,7 +62,6 @@
             </geometry>
             <material name="yellow">
                 <color rgba="1 1 0 1" />
-                <texture filename="" />
             </material>
         </visual>
         <collision name="wheel1_collision">
@@ -68,6 +71,11 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="wheel1_link">
+        <material name="yellow">
+            <color rgba="1 1 0 1" />
+        </material>
+    </gazebo>
     <!-- Back left wheel -->
     <joint name="wheel2_joint" type="continuous">
         <origin xyz="-0.3 0.35 -0.1" rpy="0.0 0.0 0.0" />
@@ -99,6 +107,11 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="wheel2_link">
+        <material name="yellow">
+            <color rgba="1 1 0 1" />
+        </material>
+    </gazebo>
     <!-- front right wheel -->
     <joint name="wheel3_joint" type="continuous">
         <origin xyz="0.3 -0.35 -0.1" rpy="0.0 0.0 0.0" />
@@ -130,7 +143,11 @@
             </geometry>
         </collision>
     </link>
-
+    <gazebo reference="wheel3_link">
+        <material name="yellow">
+            <color rgba="1 1 0 1" />
+        </material>
+    </gazebo>
     <!-- front left wheel -->
     <joint name="wheel4_joint" type="continuous">
         <origin xyz="0.3 0.35 -0.1" rpy="0.0 0.0 0.0" />
@@ -162,6 +179,11 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="wheel4_link">
+        <material name="yellow">
+            <color rgba="1 1 0 1" />
+        </material>
+    </gazebo>
     <!-- Camera -->
     <joint name="camera_joint" type="fixed">
         <origin xyz="0.501 0 0" rpy="0.0 0.0 0.0" />

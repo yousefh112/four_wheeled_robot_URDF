@@ -11,9 +11,16 @@
             <wheelSeparation>0.7</wheelSeparation>
             <wheelDiameter>0.15</wheelDiameter>
             <robotBaseFrame>chassis_link</robotBaseFrame>
-            <torque>3.2</torque>
+            <torque>1.2</torque>
             <topicName>cmd_vel</topicName>
-            <broadcastTF>false</broadcastTF>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <broadcastTF>true</broadcastTF>
+    
+            <commandTopic>cmd_vel</commandTopic>
+            <covariance_x>0.001000</covariance_x>
+            <covariance_y>0.001000</covariance_y>
+            <covariance_yaw>0.100000</covariance_yaw>
         </plugin>
     </gazebo>
 

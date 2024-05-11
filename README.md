@@ -1,48 +1,70 @@
-Sure, here's a README.md template for your GitHub repository for the ROS-based four-wheeled robot project:
+**Autonomous Mobile Robot Navigation Repository**
 
----
+Welcome to the Autonomous Mobile Robot Navigation repository! This repository contains the code and resources necessary to enable autonomous navigation for a mobile robot using ROS (Robot Operating System). With this setup, you can give the robot a goal, and it will autonomously navigate to that goal while avoiding obstacles in its path.
 
-# ROS Four-Wheeled Robot Project
+### Contents:
 
-Welcome to the ROS Four-Wheeled Robot Project repository! 🤖✨
+1. **Robot Description Package:**
+   - This package contains the URDF (Unified Robot Description Format) file describing the robot's physical structure.
+   - Gazebo plugins necessary for simulation.
+   - Map files used for navigation.
 
-## Overview
+2. **Gazebo Package:**
+   - Main launch file for starting the Gazebo simulation environment.
 
-This project showcases the design and implementation of a four-wheeled robot using ROS (Robot Operating System), Gazebo, and RViz. The robot is equipped with advanced features such as LiDAR and camera plugins, as well as 4-wheel skid drive plugins for optimal maneuverability.
+3. **Navigation Package:**
+   - AMCL (Adaptive Monte Carlo Localization) launch file for localization.
+   - GMapping launch file for SLAM (Simultaneous Localization and Mapping).
+   - Move Base launch file for setting up the navigation stack.
+   - Path planning using A* algorithm for generating optimal paths.
+   - Map files required for navigation.
+   - Configuration files and parameters for fine-tuning navigation behavior.
 
-## Features
+### Usage:
 
-- **LiDAR Plugin**: Utilizes LiDAR technology for precise environmental mapping and navigation.
-- **Camera Plugin**: Incorporates a camera plugin for high-resolution visual perception.
-- **4-Wheel Skid Drive Plugins**: Enables optimal control and maneuverability with the use of 4-wheel skid drive plugins.
-- **ROS Integration**: Seamless integration with ROS for robust robot control and communication.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/autonomous-mobile-robot.git
+   ```
 
-## Usage
+2. **Build the Workspace:**
+   ```bash
+   cd autonomous-mobile-robot
+   catkin_make
+   ```
 
-1. Clone the repository to your local machine:
+3. **Launch the Gazebo Simulation:**
+   ```bash
+   roslaunch gazebo_pkg launch.launch
+   ```
 
-```bash
-git clone https://github.com/yousefh112/four_wheeled_robot_URDF.git
-```
+4. **Launch Navigation Stack:**
+   - For AMCL localization:
+     ```bash
+     roslaunch navigation_package amcl.launch
+     ```
+   - For GMapping SLAM:
+     ```bash
+     roslaunch navigation_package gmapping.launch
+     ```
 
-2. Launch the ROS nodes:
+5. **Send Navigation Goal:**
+   Use RViz or any other ROS-compatible tool to send navigation goals to the robot. The robot will autonomously navigate to the specified goal while avoiding obstacles.
 
-```bash
-roslaunch gazebo_pkg launch.launch
-```
+### Configuration:
 
-3. Visualize the robot in Gazebo:
+- Adjust parameters in the provided configuration files to fine-tune navigation behavior, such as obstacle avoidance sensitivity, robot velocity, and map resolution.
 
-```bash
-roslaunch gazebo_pkg launch.launch
-```
+### Path Planning Algorithm:
 
-4. View robot data in RViz:
+The path planning module in this repository utilizes the A* algorithm for generating optimal paths from the robot's current position to the specified goal location. This algorithm efficiently searches the space of possible paths, taking into account both the distance to the goal and the cost of traversing through obstacles.
 
-```bash
-roslaunch gazebo_pkg launch.launch
-```
+### Localization and Mapping:
 
-## Design Sketch
+- **Localization Algorithm:** AMCL (Adaptive Monte Carlo Localization) is used for accurately estimating the robot's pose (position and orientation) within the map.
+- **Mapping Algorithm:** GMapping is employed for building a map of the environment by incrementally updating the robot's pose and surroundings based on sensor data.
 
-![alt text](4wd_design.png)
+### Issues and Contributions:
+
+If you encounter any issues or have suggestions for improvements, please feel free to open an issue or create a pull request on GitHub. Your contributions are highly appreciated and will help improve the functionality and usability of this autonomous mobile robot navigation system.
+
